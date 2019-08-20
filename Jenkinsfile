@@ -8,6 +8,5 @@ properties([
 
 pipelineWrapper(true, 30) {
     def result = sh script: 'curl http://zalenium.service.dev.dais.com/dashboard/cleanup?action=doCleanup', returnStdout: true
-    echo result
     assert result == 'SUCCESS'
 }
