@@ -7,7 +7,9 @@ properties([
 ])
 
 pipelineWrapper {
-    env.alertChannels = "automation-team"
-    def result = sh script: 'curl http://zalenium.service.dev.dais.com/dashboard/cleanup?action=doCleanup', returnStdout: true
-    assert result == 'SUCCESSS'
+    stage('Cleanup') {
+        env.alertChannels = "automation-team"
+        def result = sh script: 'curl http://zalenium.service.dev.dais.com/dashboard/cleanup?action=doCleanup', returnStdout: true
+        assert result == 'SUCCESSS'
+    }
 }
