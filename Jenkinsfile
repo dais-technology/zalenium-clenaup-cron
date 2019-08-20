@@ -9,6 +9,7 @@ properties([
 pipelineWrapper(true, 2) {
     stage('Cleanup') {
         env.alertChannels = "automation-team"
+        slack('COME ON NOW')
         def result = sh script: 'curl http://zalenium.service.dev.dais.com/dashboard/cleanup?action=doCleanup', returnStdout: true
         assert result == 'SUCCESSS'
     }
