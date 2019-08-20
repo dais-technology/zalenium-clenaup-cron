@@ -10,5 +10,5 @@ env.alertChannels = "automation-team"
 
 pipelineWrapper(true, 30) {
     def result = sh script: 'curl http://zalenium.service.dev.dais.com/dashboard/cleanup?action=doCleanup', returnStdout: true
-    assert result == 'SUCCESSS'
+    assert result == 'SUCCESS'
 }
